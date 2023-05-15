@@ -1,8 +1,7 @@
 import Link from "next/link";
 
-export default function UserComponent({ id, username, password, nome }: { 
-    id: string, username: string, password: string, nome: string 
-  }, users: any, setUsers: any) {
+export default function UserComponent(
+  { id, username, password, nome, users, setUsers }: any) {
 
   const handleClick = async (id: string): Promise<void> => {
     try {

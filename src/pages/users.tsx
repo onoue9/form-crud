@@ -1,11 +1,11 @@
-import { useEffect, useState } from "react";
+import { Key, useEffect, useState } from "react";
 import '../app/globals.css';
 import Link from "next/link";
 import UserComponent from "@/components/userComponent";
 
 export default function Users() {
 
-  const [users, setUsers] = useState<any[]>([]);
+  const [users, setUsers] = useState<any[] | any>([]);
   const [id, setId] = useState<string>('');
 
   useEffect(() => {
@@ -44,24 +44,24 @@ export default function Users() {
       <h1 className="text-center">Users</h1>
       <div className="flex">
         <ul className="grid grid-cols-3 w-auto">
-          {users && users.length > 0 && users.map((user) => (
+          {users && users.length > 0 && users.map((user: { id: string; username: string; password: string; nome: string; }) => (
               <UserComponent
+                key={user.id}
                 id={user.id}
                 username={user.username}
                 password={user.password}
                 nome={user.nome}
-                key={user.id}
                 users={users}
                 setUsers={setUsers}
               />
           ))}
           {users && users.id && 
             <UserComponent
+              key={users.id}
               id={users.id}
               username={users.username}
               password={users.password}
               nome={users.nome}
-              key={users.id}
               users={users}
               setUsers={setUsers}
             />
