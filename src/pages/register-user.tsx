@@ -20,7 +20,7 @@ export default function Register () {
       });
       const data = await response.json();
       setData(data.message);
-      !data.message ? location.pathname = '/users' : null;
+      !data.message ? location.pathname = '/form-crud/users' : null;
     } catch (error) {
       console.log('error: ', error);
     }
