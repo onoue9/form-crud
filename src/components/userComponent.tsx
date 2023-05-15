@@ -23,7 +23,7 @@ export default function UserComponent(
       {password && <li>password: {password}</li>}
       <li>nome: {nome}</li>
       <div className="flex gap-5 p-2">
-        <Link className="border shadow-md p-1" href={`/form-crud/${id}/update-user`}>Update</Link>
+        <Link className="border shadow-md p-1" href={`/${id}/update-user`}>Update</Link>
         <button className="border shadow-md p-1" onClick={() => handleClick
           (id)}>Delete</button>
       </div>

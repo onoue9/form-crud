@@ -68,7 +68,7 @@ export default function Users() {
           }
         </ul>
       </div>
-      <Link className="border shadow-md p-2 w-28" href={`/form-crud/register-user`}>Create User</Link>
+      <Link className="border shadow-md p-2 w-28" href={`/register-user`}>Create User</Link>
     </div>
   )
 }
