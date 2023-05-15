@@ -1,8 +1,8 @@
 import Link from "next/link";
 
-export default function UserComponenet({ id, username, password, nome }: { 
+export default function UserComponent({ id, username, password, nome }: { 
     id: string, username: string, password: string, nome: string 
-  }) {
+  }, users: any, setUsers: any) {
 
   const handleClick = async (id: string): Promise<void> => {
     try {
@@ -11,6 +11,7 @@ export default function UserComponenet({ id, username, password, nome }: {
       });
       const data = await response.json();
       console.log(data);
+      setUsers(users.filter((user: any) => user.id !== id));
     } catch (error) {
       console.log('error: ', error);
     }
@@ -23,7 +24,7 @@ export default function UserComponenet({ id, username, password, nome }: {
       {password && <li>password: {password}</li>}
       <li>nome: {nome}</li>
       <div className="flex gap-5 p-2">
-        <Link className="border shadow-md p-1" href={`/${id}/update-user`}>Update</Link>
+        <Link className="border shadow-md p-1" href={`/form-crud/${id}/update-user`}>Update</Link>
         <button className="border shadow-md p-1" onClick={() => handleClick
           (id)}>Delete</button>
       </div>

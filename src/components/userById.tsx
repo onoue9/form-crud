@@ -34,7 +34,6 @@ export default function UserById() {
         </form>
       </div>
       <div className="flex justify-center">
-        
         {user && user.id && <ul className="flex flex-col">
           <UserComponenet
             id={user.id}
