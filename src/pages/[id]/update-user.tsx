@@ -23,7 +23,7 @@ export default function UpdateUser() {
       });
       const data = await response.json();
       console.log(data);
-      location.pathname = '/users';
+      location.pathname = '/form-crud/users';
     } catch (error) {
       console.log('error: ', error);
     }
