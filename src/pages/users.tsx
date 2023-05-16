@@ -1,4 +1,4 @@
-import { Key, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import '../app/globals.css';
 import Link from "next/link";
 import UserComponent from "@/components/userComponent";
@@ -13,13 +13,14 @@ export default function Users() {
       try {
         const response = await fetch('http://localhost:3001/users');
         const data = await response.json();
+        data.sort((a: { id: number; }, b: { id: number; }) => a.id - b.id);
         setUsers(data);
       } catch (error) {
         console.log('error: ', error);
       }
     }
     id === '' && getUsers();
-  }, [id, users])
+  }, [id])
 
   useEffect(() => {
     const getUserById = async () => {
