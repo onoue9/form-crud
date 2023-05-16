@@ -6,7 +6,8 @@ import { useEffect } from "react";
 
 export default function Home() {
   useEffect(() => {
-    redirect("/users");
+    location.pathname = '/users';
+    //redirect('/users');
   }, [])
 
   return (
